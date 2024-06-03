@@ -4,6 +4,7 @@ import loginRouter from './routes/login.js';
 import registerRouter from './routes/register.js';
 import verifyRouter from './routes/verify.js';
 import errors from './middlewares/errors.js';
+import limiter from './middlewares/rate-limiter.js';
 
 dotenv.config();
 
@@ -11,6 +12,7 @@ const app = express();
 
 app.set('port', process.env.PORT);
 
+app.use(limiter);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(errors.json);
