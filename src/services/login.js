@@ -2,9 +2,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import pool from '../db.js';
 
-const login = async (user) => {
-  const { email, password } = user;
-
+const login = async ({ email, password }) => {
   if (!email || !password) {
     return {
       status: 400,

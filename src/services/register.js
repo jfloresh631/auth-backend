@@ -1,9 +1,7 @@
 import bcrypt from 'bcryptjs';
 import pool from '../db.js';
 
-const register = async (user) => {
-  const { name, email, password } = user;
-
+const register = async ({ name, email, password }) => {
   if (!name || !email || !password) {
     return {
       status: 400,

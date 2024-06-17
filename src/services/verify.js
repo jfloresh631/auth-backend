@@ -1,8 +1,6 @@
 import jwt from 'jsonwebtoken';
 
-const verify = async (headers) => {
-  const { authorization } = headers;
-
+const verify = async ({ authorization }) => {
   if (!authorization) {
     return {
       status: 400,
